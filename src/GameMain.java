@@ -62,18 +62,20 @@ public class GameMain extends JFrame implements ActionListener{
             gameFinish = false;
             initTextField();
         }
-        for (int i = 0; i < 9; i++) {
-            if (e.getSource() == board.getCells()[i]) {
-                if (board.getCells()[i].getContent() == null) {
-                    board.getCells()[i].setContent(isPlaying);
-                    board.getCells()[i].paint(getColor(isPlaying));
-                    Player winner = board.hasWon(isPlaying);
-                    isPlaying = switchPlayer(isPlaying);
-                    if (winner != null) {
-                        updateGame(winner.name() + " win");
-                    }
-                    if(board.isDraw()){
-                        text.setText("Draw");
+        else{
+            for (int i = 0; i < 9; i++) {
+                if (e.getSource() == board.getCells()[i]) {
+                    if (board.getCells()[i].getContent() == null) {
+                        board.getCells()[i].setContent(isPlaying);
+                        board.getCells()[i].paint(getColor(isPlaying));
+                        Player winner = board.hasWon(isPlaying);
+                        isPlaying = switchPlayer(isPlaying);
+                        if (winner != null) {
+                            updateGame(winner.name() + " win");
+                        }
+                        if(board.isDraw()){
+                            text.setText("Draw");
+                        }
                     }
                 }
             }
