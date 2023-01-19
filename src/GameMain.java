@@ -74,7 +74,7 @@ public class GameMain extends JFrame implements ActionListener{
                             updateGame(winner.name() + " win");
                         }
                         if(board.isDraw()){
-                            text.setText("Draw");
+                            updateGame("Draw");
                         }
                     }
                 }
